@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const HeaderWrapper = styled.header`
-  background-color: #333;
+  background-color: #1A4699;
   color: white;
   padding: 1rem;
   text-align: center;

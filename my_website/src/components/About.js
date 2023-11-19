@@ -9,8 +9,13 @@ const About = () => {
         Learning. I am highly motivated, possess excellent problem-solving
         skills and thrive in collaborative team environments.
       </p>
-      <a href="https://drive.google.com/file/d/1cKJ8PGmOF2NnTvoghMnrfge2CjpjDOBH/view?usp=sharing">
-        This is my Resume
+      <a
+        href="https://drive.google.com/file/d/1cKJ8PGmOF2NnTvoghMnrfge2CjpjDOBH/view?usp=sharing"
+        class="button"
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        My Resume
       </a>
     </section>
   );
