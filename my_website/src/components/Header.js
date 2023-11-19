@@ -11,8 +11,8 @@ const HeaderWrapper = styled.header`
 const Header = () => {
   return (
     <HeaderWrapper>
-      <h1>Your Name</h1>
-      <p>Web Developer</p>
+      <h1>Abhay Mathur</h1>
+      <p>ML Developer | Backend Web Developer</p>
     </HeaderWrapper>
   );
 };
