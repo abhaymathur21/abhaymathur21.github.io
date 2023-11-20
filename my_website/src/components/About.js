@@ -10,7 +10,7 @@ const About = () => {
         skills and thrive in collaborative team environments.
       </p>
       <a
-        href="https://drive.google.com/file/d/1cKJ8PGmOF2NnTvoghMnrfge2CjpjDOBH/view?usp=sharing"
+        href="https://drive.google.com/file/d/137-aDE24Vqy24Yttrl4pNa46cVvgIcy2/view?usp=sharing"
         className="button"
         target="_blank"
         rel="noreferrer noopener"
