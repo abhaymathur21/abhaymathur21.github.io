@@ -35,7 +35,7 @@ const Header = () => {
   return (
     <HeaderWrapper ref={myRef} id="header">
       <h1>Abhay Mathur</h1>
-      <p>ML Developer | Backend Web Developer</p>
+      <p>20 | ML Engineer | Backend Web Developer</p>
     </HeaderWrapper>
   );
 };
