@@ -4,13 +4,8 @@ import styled from "styled-components";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-
-import eccomixImage from "C:/Users/a21ma/OneDrive/Desktop/Code/React/My Website/my_website/src/components/images/Eccomix.png";
-
-import mecha from "C:/Users/a21ma/OneDrive/Desktop/Code/React/My Website/my_website/src/components/images/mecha.jpg";
 
 const ExperienceSection = styled.section`
   // display: flex;
@@ -31,7 +26,8 @@ const ExperienceSection = styled.section`
 
 const Cards = styled.div`
   display: flex;
-  gap: 10rem;
+  gap: 2rem;
+  flex-wrap: wrap;
 
   justify-content: center;
   align-items: center;
@@ -44,49 +40,76 @@ const Experience = () => {
     <ExperienceSection>
       <h2 id="experienceHeading">Work Experience</h2>
       <Cards>
-        <Card sx={{}}>
-          <CardMedia
-            component="img"
-            alt="Eccomix"
-            height="140"
-            src={eccomixImage}
-          />
+        <Card sx={{ maxWidth: 420 }}>
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              Full Stack Web Developer
+              AI Engineer — Searce
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Making a contract management website for the company.
+              Designed and built multi-agent LLM systems with Google ADK for
+              automated anomaly diagnosis across network + database signals.
+              Deployed agentic chat experiences on Vertex AI Agent Engine and
+              Cloud Run.
             </Typography>
           </CardContent>
           <CardActions>
             <Button
               size="small"
-              onClick={() => window.open("https://eccomix.in/", "_blank")}
+              onClick={() =>
+                window.open("https://www.linkedin.com/company/searce/", "_blank")
+              }
             >
               Learn More
             </Button>
           </CardActions>
         </Card>
 
-        <Card sx={{}}>
-          <CardMedia component="img" alt="mecha" height="140" src={mecha} />
+        <Card sx={{ maxWidth: 420 }}>
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              ML Developer
+              AI Intern — Microsoft Research & Navsahyog
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Implementing ML models on a custom embedded device
+              Worked on “Jugalbandi Studio” to integrate a multilingual RAG-based
+              Telegram chatbot. Built a document translation site and a
+              grant-writing assistant grounded in prior proposals.
             </Typography>
           </CardContent>
           <CardActions>
             <Button
               size="small"
-              onClick={() => window.open("https://www.linkedin.com/company/mecha-systems/about/", "_blank")}
+              onClick={() =>
+                window.open(
+                  "https://www.microsoft.com/en-us/research/",
+                  "_blank"
+                )
+              }
             >
               Learn More
             </Button>
-            
+          </CardActions>
+        </Card>
+
+        <Card sx={{ maxWidth: 420 }}>
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              AI Developer Intern — Airrchip
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Built a RAG chatbot for capital markets using live news, knowledge
+              graphs, and NER-based stock trend analysis. Built and deployed a
+              FastAPI backend with AWS DynamoDB and S3.
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button
+              size="small"
+              onClick={() =>
+                window.open("https://www.linkedin.com/", "_blank")
+              }
+            >
+              Learn More
+            </Button>
           </CardActions>
         </Card>
       </Cards>

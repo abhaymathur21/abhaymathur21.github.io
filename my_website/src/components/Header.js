@@ -110,13 +110,13 @@ const Header = () => {
       <Overlay overlayState={overlayState} />
 
       <h1 style={{ fontWeight: "900" }}>Abhay Mathur</h1>
-      <p>20 | ML Engineer | Full Stack Web Developer</p>
+      <p>AI Engineer | Agentic AI • RAG • Graph RAG</p>
       <p id="aboutMeParagraph">
-        I am a student in the field of Artificial Intelligence and Machine
-        Learning. I am highly motivated, possess excellent problem-solving
-        skills and thrive in collaborative team environments.
+        AI Engineer at Searce, building multi-agent systems, RAG pipelines, and
+        graph-based analytics. B.Tech (AI &amp; ML) from DJ Sanghvi College of
+        Engineering (CGPA 8.4).
         <a
-          href="https://drive.google.com/file/d/137-aDE24Vqy24Yttrl4pNa46cVvgIcy2/view?usp=sharing"
+          href="/My%20Resume.pdf"
           className="button"
           target="_blank"
           rel="noreferrer noopener"
@@ -125,8 +125,6 @@ const Header = () => {
           My Resume
         </a>
       </p>
-
-      <Overlay />
       <DownArrow onClick={scrollToNextSection}>&darr;</DownArrow>
     </HeaderWrapper>
   );
