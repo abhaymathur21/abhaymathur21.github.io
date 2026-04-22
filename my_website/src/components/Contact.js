@@ -5,7 +5,7 @@ import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import styled from "styled-components";
 
 const ContactSection = styled.footer`
-  background-color: #1a4699;
+  background-color: #2a6cb6;
   color: white;
   padding: 1rem 0;
   text-align: center;

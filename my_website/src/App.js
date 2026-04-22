@@ -7,7 +7,7 @@ import GlobalStyles from "./styles/GlobalStyles";
 import styled from "styled-components";
 
 const Gradient = styled.footer`
-  background: linear-gradient(to bottom, rgba(52, 148, 230, 1), #cddfff);
+  background: linear-gradient(to bottom, rgba(52, 148, 230, 1), #5da8d0 50%, #5a9fd4 80%, #2a6cb6);
 `;
 
 function App() {
