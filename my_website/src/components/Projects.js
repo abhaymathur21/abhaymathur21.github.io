@@ -88,9 +88,39 @@ const GithubIcon = styled.span`
 
 const projects = [
   {
+    title: "TensionCode — Function Code Generator",
+    desc: "A platform that generates function code in multiple languages from structured and unstructured databases, with code evaluation via AutoGen, ER-diagram OCR, flowchart generation, and VS Code integration, built at Hackniche 2.0.",
+    href: "https://github.com/abhaymathur21/TensionCode",
+  },
+  {
+    title: "Aura — Personal Voice Assistant",
+    desc: "A voice-controlled personal assistant that manages emails, calendar events, music, news, weather, and complex calculations using speech recognition and AutoGen agents.",
+    href: "https://github.com/abhaymathur21/Aura",
+  },
+  {
     title: "Client–Attorney Matchmaking Platform",
     desc: "An intelligent platform that matches clients with the right attorneys based on case requirements, built at the DataHack 2.0 hackathon.",
     href: "https://github.com/Kashish-G/DataHack_2_Tensionflow",
+  },
+  {
+    title: "TensionNews — News Data Extraction & Visualization",
+    desc: "A platform that extracts and visualizes news data using NetworkX graphs, sentiment analysis, stock correlation, and a chatbot, built with Flask, Next.js, and Supabase for LOC 6.0.",
+    href: "https://github.com/abhaymathur21/TensionNews",
+  },
+  {
+    title: "Shopping Assistant — Personalised Shopping with uAgents",
+    desc: "An intelligent shopping assistant using Fetch.ai uAgents for product recommendations, multi-source price comparison, and an AI fashion advisor, built with Next.js and Flask for HackAI at IIT Bombay Techfest 2023.",
+    href: "https://github.com/abhaymathur21/Shopping-Assistant",
+  },
+  {
+    title: "SmartMart — Smart E-commerce Application",
+    desc: "An intelligent e-commerce platform featuring LSTM-based demand forecasting, Apriori product recommendations, Gemini-powered chatbot, and uAgents for real-time alerts, built with Next.js and Flask for Cyber Cypher 3.0.",
+    href: "https://github.com/abhaymathur21/SmartMart",
+  },
+  {
+    title: "GreenBasket — Grocery Inventory & Delivery Management",
+    desc: "A grocery store management system with CNN-based stock detection, LSTM demand forecasting, and uAgents for automated inventory alerts and delivery coordination, built with Flask for Cyber Cypher 3.0.",
+    href: "https://github.com/abhaymathur21/GreenBasket",
   },
   {
     title: "Waste Segregation Application",
@@ -102,11 +132,11 @@ const projects = [
     desc: "Real-time emotion detection combining audio, video, and text signals to enhance virtual classroom engagement.",
     href: "https://github.com/abhaymathur21/HackX-Virtual-Classroom",
   },
-  {
-    title: "Fashion Assistant AI Tool",
-    desc: "An AI-powered fashion assistant using OpenAI to provide personalized outfit recommendations and style advice.",
-    href: "https://github.com/abhaymathur21/Fashion_Assistant_OpenAI",
-  },
+  // {
+  //   title: "Fashion Assistant AI Tool",
+  //   desc: "An AI-powered fashion assistant using OpenAI to provide personalized outfit recommendations and style advice.",
+  //   href: "https://github.com/abhaymathur21/Fashion_Assistant_OpenAI",
+  // }, 
 ];
 
 const Projects = () => {

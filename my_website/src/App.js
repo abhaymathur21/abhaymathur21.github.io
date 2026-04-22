@@ -2,6 +2,8 @@ import React from "react";
 import Header from "./components/Header";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
+import Achievements from "./components/Achievements";
+import Responsibilities from "./components/Responsibilities";
 import Contact from "./components/Contact";
 import GlobalStyles from "./styles/GlobalStyles";
 import styled from "styled-components";
@@ -18,6 +20,8 @@ function App() {
       <Gradient>
         <Experience />
         <Projects />
+        <Achievements />
+        <Responsibilities />
       </Gradient>
       <Contact />
     </>
