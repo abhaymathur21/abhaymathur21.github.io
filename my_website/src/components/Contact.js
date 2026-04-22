@@ -70,7 +70,7 @@ const Contact = () => {
         <FontAwesomeIcon icon={faGithub} />
         {/* <span>Github</span> */}
       </a>
-      <p>&copy; 2023 Abhay Mathur</p>
+      <p>&copy; 2026 Abhay Mathur</p>
     </ContactSection>
   );
 };

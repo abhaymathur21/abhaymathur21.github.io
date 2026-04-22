@@ -5,11 +5,18 @@ import WAVES from "vanta/dist/vanta.waves.min";
 
 const HeaderWrapper = styled.footer`
   color: #fff;
-  padding: 7rem;
+  min-height: 100vh;
+  padding: 2rem;
   margin: 0;
   text-align: center;
   font-size: 1.2rem;
   font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
 
   .content {
     display: inline-block;
@@ -269,7 +276,7 @@ const HeaderWrapper = styled.footer`
   }
 
   @media (max-width: 720px) {
-    padding: 5rem 1.25rem;
+    padding: 2rem 1.25rem;
     .glass {
       padding: 1.1rem 1.1rem;
     }
@@ -395,7 +402,7 @@ const Header = () => {
                 automate their workflows.
               </p>
 
-              <p className="tldr">TL;DR I automate things.</p>
+              <p className="tldr">TL;DR: I automate things.</p>
             </div>
 
             <div className="bioRight">
