@@ -289,16 +289,11 @@ const HeaderWrapper = styled.footer`
     text-align: center;
     text-decoration: none;
     cursor: pointer;
-    color: #fff;
-    background: linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.08) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    border-top-color: rgba(255, 255, 255, 0.4);
+    color: #124572;
+    background: rgba(255, 255, 255, 0.75);
+    border: none;
     border-radius: 14px;
-    backdrop-filter: blur(12px);
-    box-shadow:
-      0 4px 24px rgba(0, 0, 0, 0.12),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
     transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     overflow: hidden;
     z-index: 1;
@@ -315,9 +310,9 @@ const HeaderWrapper = styled.footer`
     background: linear-gradient(
       105deg,
       transparent 20%,
-      rgba(255, 255, 255, 0.15) 40%,
-      rgba(255, 255, 255, 0.3) 50%,
-      rgba(255, 255, 255, 0.15) 60%,
+      rgba(18, 69, 114, 0.05) 40%,
+      rgba(18, 69, 114, 0.1) 50%,
+      rgba(18, 69, 114, 0.05) 60%,
       transparent 80%
     );
     transition: left 0.6s ease;
@@ -325,15 +320,9 @@ const HeaderWrapper = styled.footer`
   }
 
   .button:hover {
-    background: linear-gradient(135deg, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.14) 100%);
-    border-color: rgba(255, 255, 255, 0.5);
-    border-top-color: rgba(255, 255, 255, 0.6);
-    box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.18),
-      0 0 20px rgba(255, 255, 255, 0.08),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.05);
-    color: #fff;
+    background: #fff;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+    color: #0d3b66;
     transform: translateY(-2px);
   }
 
