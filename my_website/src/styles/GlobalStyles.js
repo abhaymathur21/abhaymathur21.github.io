@@ -4,8 +4,16 @@ const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Inter', sans-serif;
 
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .button, .tldr, .nowPill, .sideQuestPill {
+    font-family: 'Plus Jakarta Sans', sans-serif;
   }
 
   a {
