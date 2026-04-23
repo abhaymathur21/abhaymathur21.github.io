@@ -37,11 +37,12 @@ const RoleCard = styled.div`
   border-left: 4px solid ${(props) => props.$accent || "#124572"};
   border-radius: 14px;
   padding: 1.4rem 1.8rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transform-style: preserve-3d;
 
   &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+    transform: perspective(800px) rotateX(2deg) rotateY(-2deg) translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
   }
 `;
 
