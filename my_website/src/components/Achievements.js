@@ -127,7 +127,7 @@ const achievements = [
     medal: "\uD83E\uDD49",
     badgeBg: "rgba(173, 138, 86, 0.18)",
     badgeColor: "#6d5630",
-    link: "https://github.com/abhaymathur21/HackX-Virtual-Classroom",
+    link: "https://github.com/abhaymathur21/Shopping-Assistant",
   },
   {
     title: "IIT Roorkee Sociothon 2023",
