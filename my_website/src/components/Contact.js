@@ -16,26 +16,30 @@ const ContactSection = styled.footer`
 
   .contact_heading {
     margin: 0;
+    font-size: 1.6rem;
   }
 
   .contact_button {
     margin: 1rem;
     display: inline-flex;
-    padding: 1rem;
+    padding: 1.05rem;
     text-decoration: none;
     cursor: pointer;
-    background-color: #fff;
-    color: #1a4699;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
     border: none;
     border-radius: 50%;
-    width: 5px;
-    height: 5px;
-    display: inline-flex;
+    width: 12px;
+    height: 12px;
+    font-size: 1.05rem;
     align-items: center;
     justify-content: center;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
   }
   .contact_button:hover {
-    background-color: #004466;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   }
 `;
 
