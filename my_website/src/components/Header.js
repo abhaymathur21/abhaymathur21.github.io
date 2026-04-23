@@ -324,17 +324,15 @@ const Overlay = styled.div`
 `;
 
 const DownArrow = styled.a`
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
+  display: block;
+  margin-top: 1.5rem;
   color: #fff;
   font-size: 2.3rem;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
 
   &:hover {
-    transform: translateX(-50%) translateY(-0.5rem);
+    transform: translateY(-0.5rem);
   }
 `;
 
@@ -470,9 +468,9 @@ const Header = () => {
         >
           My Resume
         </a>
-      </div>
 
-      <DownArrow onClick={scrollToNextSection}>&darr;</DownArrow>
+        <DownArrow onClick={scrollToNextSection}>&darr;</DownArrow>
+      </div>
     </HeaderWrapper>
   );
 };
