@@ -82,7 +82,7 @@ const ProjectCard = styled.div`
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 14px;
-  padding: 1.4rem 1.5rem;
+  padding: 1.6rem 1.7rem;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
   display: flex;
   flex-direction: column;
@@ -106,13 +106,24 @@ const BulletList = styled.ul`
   margin: 0;
   padding-left: 1.15rem;
   flex: 1;
+  list-style: none;
 `;
 
 const Bullet = styled.li`
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   color: #2c4f6e;
-  line-height: 1.55;
-  margin-bottom: 0.45rem;
+  line-height: 1.7;
+  margin-bottom: 0.65rem;
+  position: relative;
+  padding-left: 0.2rem;
+
+  &::before {
+    content: "—";
+    position: absolute;
+    left: -1.15rem;
+    color: rgba(13, 59, 102, 0.35);
+    font-weight: 700;
+  }
 
   &:last-child {
     margin-bottom: 0;

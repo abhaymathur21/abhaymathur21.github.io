@@ -70,12 +70,24 @@ const RoleOrg = styled.p`
 const RoleDesc = styled.ul`
   margin: 0;
   padding-left: 1.15rem;
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   color: #2c4f6e;
-  line-height: 1.6;
+  line-height: 1.75;
+  list-style: none;
 
   li {
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.65rem;
+    position: relative;
+    padding-left: 0.2rem;
+
+    &::before {
+      content: "—";
+      position: absolute;
+      left: -1.15rem;
+      color: rgba(13, 59, 102, 0.35);
+      font-weight: 700;
+    }
+
     &:last-child {
       margin-bottom: 0;
     }

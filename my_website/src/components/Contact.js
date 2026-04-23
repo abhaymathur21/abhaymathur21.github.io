@@ -16,6 +16,8 @@ const ContactSection = styled.footer`
 
   .contact_heading {
     margin: 0;
+    color: white;
+    display: block;
   }
 
   .contact_button {

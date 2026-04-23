@@ -62,9 +62,9 @@ const CardTitle = styled.h3`
 
 const CardDesc = styled.p`
   margin: 0;
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   color: #2c4f6e;
-  line-height: 1.55;
+  line-height: 1.75;
   flex: 1;
 `;
 

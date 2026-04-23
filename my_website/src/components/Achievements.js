@@ -73,10 +73,10 @@ const CardTitle = styled.h3`
 `;
 
 const CardEvent = styled.p`
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.6rem;
   font-size: 0.85rem;
   color: #2c4f6e;
-  line-height: 1.45;
+  line-height: 1.7;
 `;
 
 const PlaceBadge = styled.span`
