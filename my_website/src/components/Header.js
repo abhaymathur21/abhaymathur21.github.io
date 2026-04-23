@@ -123,6 +123,7 @@ const HeaderWrapper = styled.footer`
     color: rgba(255, 255, 255, 0.92);
     font-weight: 850;
     letter-spacing: 0.2px;
+    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   }
 
   .sideQuestNote {
@@ -132,25 +133,19 @@ const HeaderWrapper = styled.footer`
 
   .sideQuestHandle {
     text-decoration: none;
-    padding: 0.2rem 0.25rem;
-    border-radius: 8px;
+    cursor: pointer;
   }
 
-  .sideQuestHandle:hover {
-    background: rgba(197, 242, 255, 0.12);
+  .sideQuestHandle:hover .sideQuestPill {
+    transform: scale(1.08);
+    background: rgba(0, 0, 0, 0.28);
+    border-color: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   }
 
   .nowHandle {
-    text-decoration: none;
-    padding: 0.15rem 0.25rem;
-    border-radius: 8px;
-    display: inline-flex;
     text-decoration: none !important;
-  }
-
-  .nowHandle:hover {
-    background: rgba(197, 242, 255, 0.12);
-    text-decoration: none;
+    display: inline-flex;
   }
 
   .nowPill {
@@ -164,6 +159,14 @@ const HeaderWrapper = styled.footer`
     font-weight: 850;
     letter-spacing: 0.2px;
     white-space: nowrap;
+    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .nowHandle:hover .nowPill {
+    transform: scale(1.08);
+    background: rgba(0, 0, 0, 0.28);
+    border-color: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   }
 
   .nowLinkText {
@@ -233,6 +236,7 @@ const HeaderWrapper = styled.footer`
   }
 
   .tldr {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -245,6 +249,26 @@ const HeaderWrapper = styled.footer`
     color: #ffffff;
     background: rgba(0, 0, 0, 0.22);
     border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .tldr::after {
+    content: "No, this is not a button.";
+    position: absolute;
+    bottom: -1.3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.55);
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+    font-style: italic;
+  }
+
+  .tldr:hover::after {
+    opacity: 1;
   }
 
   .ps {
@@ -395,10 +419,40 @@ const DownArrow = styled.a`
   }
 `;
 
+const EasterEggToast = styled.div`
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(${(props) => (props.$show ? "0" : "80px")});
+  opacity: ${(props) => (props.$show ? 1 : 0)};
+  background: rgba(13, 59, 102, 0.85);
+  backdrop-filter: blur(12px);
+  color: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.8rem 1.4rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  pointer-events: ${(props) => (props.$show ? "auto" : "none")};
+  cursor: pointer;
+  z-index: 9999;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  white-space: nowrap;
+`;
+
+const easterEggMessages = [
+  "Yes, I play guitar. No, I won't play Wonderwall. (Click again for Instagram)",
+  "Music is my therapy. AI pays for it. (Tap again to see more)",
+  "I debug code and sheet music with equal frustration. (Click again for Instagram)",
+  "Trained neural networks by day and my ears by night. (Tap again to see more)",
+  "I once spent 3 hours on a bug. And 4 hours learning a song. Priorities. (Tap again to see more)",
+];
+
 const Header = () => {
   const [vantaEffect, setVantaEffect] = useState(null);
   // eslint-disable-next-line
   const [overlayState, setOverlayState] = useState(true);
+  const [easterEgg, setEasterEgg] = useState({ show: false, msg: "" });
   const myRef = useRef(null);
   // const ref = useRef(null);
   const instagram = {
@@ -438,6 +492,21 @@ const Header = () => {
     }
   };
 
+  const clickCount = useRef(0);
+  const triggerEasterEgg = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    clickCount.current += 1;
+    if (clickCount.current === 1) {
+      const msg = easterEggMessages[Math.floor(Math.random() * easterEggMessages.length)];
+      setEasterEgg({ show: true, msg });
+      setTimeout(() => setEasterEgg({ show: false, msg }), 5000);
+    } else {
+      window.open(instagram.url, "_blank", "noreferrer noopener");
+      clickCount.current = 0;
+    }
+  };
+
   return (
     <HeaderWrapper ref={myRef}>
       <Overlay overlayState={overlayState} />
@@ -467,17 +536,16 @@ const Header = () => {
                 <div className="fact">
                   <div className="factLabel">Now</div>
                   <div className="factValue">
-                    <span className="nowPill">
-                      <a
-                        href={linkedin.url}
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        className="nowHandle"
-                      >
-                        <span className="nowLinkText">AI Engineer</span>
-                      </a>{" "}
-                      @ Searce Inc.
-                    </span>
+                    <a
+                      href={linkedin.url}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="nowHandle"
+                    >
+                      <span className="nowPill">
+                        <span className="nowLinkText">AI Engineer</span>&nbsp;@ Searce Inc.
+                      </span>
+                    </a>
                   </div>
                 </div>
 
@@ -498,11 +566,11 @@ const Header = () => {
                 <div className="fact fact--vcenter">
                   <div className="factLabel">Side quest</div>
                   <div className="factValue">
-                    <a
-                      href={instagram.url}
-                      target="_blank"
-                      rel="noreferrer noopener"
+                    <span
                       className="sideQuestHandle"
+                      onClick={triggerEasterEgg}
+                      role="button"
+                      tabIndex={0}
                     >
                       <span className="sideQuestRow">
                         <span className="sideQuestPill">
@@ -510,7 +578,7 @@ const Header = () => {
                           Musician
                         </span>
                       </span>
-                    </a>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -530,6 +598,12 @@ const Header = () => {
 
         <DownArrow onClick={scrollToNextSection}>&darr;</DownArrow>
       </div>
+      <EasterEggToast
+        $show={easterEgg.show}
+        onClick={() => window.open(instagram.url, "_blank", "noreferrer noopener")}
+      >
+        {easterEgg.msg}
+      </EasterEggToast>
     </HeaderWrapper>
   );
 };

@@ -20,6 +20,7 @@ const ContactSection = styled.footer`
   }
 
   .contact_button {
+    position: relative;
     margin: 1rem;
     display: inline-flex;
     padding: 1.05rem;
@@ -41,6 +42,23 @@ const ContactSection = styled.footer`
     transform: translateY(-3px) scale(1.1);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   }
+  .contact_button::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -1.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.7);
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+  }
+  .contact_button:hover::after {
+    opacity: 1;
+  }
 `;
 
 const Contact = () => {
@@ -51,30 +69,29 @@ const Contact = () => {
       <a
         href="mailto:a21.mathur21@gmail.com"
         className="contact_button"
+        data-tooltip="Email"
         target="_blank"
         rel="noreferrer noopener"
       >
         <FontAwesomeIcon icon={faEnvelope} />
-
-        {/* <span>Gmail</span> */}
       </a>
       <a
         href="https://www.linkedin.com/in/abhaymathur21/"
         className="contact_button"
+        data-tooltip="LinkedIn"
         target="_blank"
         rel="noreferrer noopener"
       >
         <FontAwesomeIcon icon={faLinkedin} />
-        {/* <span>LinkedIn</span> */}
       </a>
       <a
         href="https://github.com/abhaymathur21"
         className="contact_button"
+        data-tooltip="GitHub"
         target="_blank"
         rel="noreferrer noopener"
       >
         <FontAwesomeIcon icon={faGithub} />
-        {/* <span>Github</span> */}
       </a>
       <p>&copy; 2026 Abhay Mathur</p>
     </ContactSection>
