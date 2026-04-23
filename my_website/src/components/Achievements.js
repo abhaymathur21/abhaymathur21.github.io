@@ -36,7 +36,7 @@ const Grid = styled.div`
 `;
 
 const Card = styled.div`
-  background: rgba(255, 255, 255, 0.72);
+  background: linear-gradient(135deg, rgba(255,255,255,0.72), rgba(255,255,255,0.72), rgba(255,255,255,0.72));
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 14px;
@@ -50,6 +50,7 @@ const Card = styled.div`
   &:hover {
     transform: perspective(800px) rotateX(2deg) rotateY(-2deg) translateY(-4px);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    background: linear-gradient(135deg, rgba(255,255,255,0.82), rgba(220,240,255,0.75), rgba(255,255,255,0.78));
   }
 `;
 
