@@ -14,8 +14,6 @@ const SectionHeading = styled.h2`
   padding-top: 1rem;
   padding-left: 2rem;
   margin-bottom: 2.5rem;
-  color: #124572;
-  font-size: 2rem;
 
   @media (max-width: 768px) {
     padding-left: 0.5rem;
@@ -153,7 +151,7 @@ const Achievements = () => {
   const revealRef = useScrollReveal(".reveal", 50);
   return (
     <AchievementsSection ref={revealRef}>
-      <SectionHeading className="reveal">Achievements</SectionHeading>
+      <SectionHeading className="reveal section-heading">Achievements</SectionHeading>
       <Grid>
         {achievements.map((a) => (
           <Card key={a.title} className="reveal">

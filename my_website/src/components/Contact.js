@@ -16,7 +16,6 @@ const ContactSection = styled.footer`
 
   .contact_heading {
     margin: 0;
-    font-size: 1.6rem;
   }
 
   .contact_button {
@@ -65,7 +64,7 @@ const Contact = () => {
   const revealRef = useScrollReveal(".reveal", 50);
   return (
     <ContactSection ref={revealRef}>
-      <h2 className="contact_heading reveal">Contact</h2>
+      <h2 className="contact_heading reveal section-heading">Contact</h2>
       <a
         href="mailto:a21.mathur21@gmail.com"
         className="contact_button"

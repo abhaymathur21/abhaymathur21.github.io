@@ -14,8 +14,6 @@ const SectionHeading = styled.h2`
   padding-top: 1rem;
   padding-left: 2rem;
   margin-bottom: 2.5rem;
-  color: #124572;
-  font-size: 2rem;
 
   @media (max-width: 768px) {
     padding-left: 0.5rem;
@@ -112,7 +110,7 @@ const Responsibilities = () => {
   const revealRef = useScrollReveal(".reveal", 60);
   return (
     <ResponsibilitiesSection ref={revealRef}>
-      <SectionHeading className="reveal">Positions of Responsibility</SectionHeading>
+      <SectionHeading className="reveal section-heading">Positions of Responsibility</SectionHeading>
       <RolesGrid>
         {roles.map((r) => (
           <RoleCard key={r.title} $accent={r.accent} className="reveal">

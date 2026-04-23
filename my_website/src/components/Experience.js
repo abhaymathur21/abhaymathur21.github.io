@@ -9,8 +9,6 @@ const ExperienceSection = styled.section`
     padding-top: 1rem;
     padding-left: 2rem;
     margin-bottom: 2.5rem;
-    color: #124572;
-    font-size: 2rem;
   }
 
   @media (max-width: 768px) {
@@ -144,8 +142,6 @@ const SectionHeading = styled.h2`
   padding-top: 1rem;
   padding-left: 2rem;
   margin-bottom: 2.5rem;
-  color: #124572;
-  font-size: 2rem;
 
   @media (max-width: 768px) {
     padding-left: 0.5rem;
@@ -356,7 +352,7 @@ const Experience = () => {
   const revealRef = useScrollReveal(".reveal", 50);
   return (
     <ExperienceSection ref={revealRef}>
-      <h2 id="experienceHeading" className="reveal">Work Experience</h2>
+      <h2 id="experienceHeading" className="reveal section-heading">Work Experience</h2>
       {companies.map((company) => (
         <CompanyBlock key={company.name} className="reveal">
           <CompanyHeader>
@@ -388,7 +384,7 @@ const Experience = () => {
       ))}
 
       {/* Research Papers */}
-      <SectionHeading className="reveal">Research Papers</SectionHeading>
+      <SectionHeading className="reveal section-heading">Research Papers</SectionHeading>
       <CompanyBlock className="reveal">
         <FeatureCard>
           <FeatureHeader>
@@ -431,7 +427,7 @@ const Experience = () => {
       </CompanyBlock>
 
       {/* Open Source Contributions */}
-      <SectionHeading className="reveal">Open Source Contributions</SectionHeading>
+      <SectionHeading className="reveal section-heading">Open Source Contributions</SectionHeading>
       <CompanyBlock className="reveal">
         <FeatureCard>
           <FeatureHeader>

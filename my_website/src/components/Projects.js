@@ -14,8 +14,6 @@ const SectionHeading = styled.h2`
   padding-top: 1rem;
   padding-left: 2rem;
   margin-bottom: 2.5rem;
-  color: #124572;
-  font-size: 2rem;
 
   @media (max-width: 768px) {
     padding-left: 0.5rem;
@@ -168,7 +166,7 @@ const Projects = () => {
   const revealRef = useScrollReveal(".reveal", 40);
   return (
     <ProjectSection ref={revealRef}>
-      <SectionHeading className="reveal">Projects</SectionHeading>
+      <SectionHeading className="reveal section-heading">Projects</SectionHeading>
       <Grid>
         {projects.map((p) => (
           <Card

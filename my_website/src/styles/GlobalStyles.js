@@ -12,6 +12,32 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Plus Jakarta Sans', sans-serif;
   }
 
+  .section-heading {
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: #124572;
+    letter-spacing: -0.3px;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 0.55rem;
+  }
+
+  .section-heading::after {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .section-heading {
+      font-size: 2rem;
+      display: block;
+      text-align: center;
+    }
+    .section-heading::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
   .button, .tldr, .nowPill, .sideQuestPill {
     font-family: 'Plus Jakarta Sans', sans-serif;
   }
