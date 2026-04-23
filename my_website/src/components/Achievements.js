@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import useScrollReveal from "../hooks/useScrollReveal";
 
 const AchievementsSection = styled.section`
   padding: 2rem 2rem 4rem;
@@ -148,12 +149,13 @@ const achievements = [
 ];
 
 const Achievements = () => {
+  const revealRef = useScrollReveal(".reveal", 100);
   return (
-    <AchievementsSection>
-      <SectionHeading>Achievements</SectionHeading>
+    <AchievementsSection ref={revealRef}>
+      <SectionHeading className="reveal">Achievements</SectionHeading>
       <Grid>
         {achievements.map((a) => (
-          <Card key={a.title}>
+          <Card key={a.title} className="reveal">
             <Medal>{a.medal}</Medal>
             <CardBody>
               <CardTitle>{a.title}</CardTitle>

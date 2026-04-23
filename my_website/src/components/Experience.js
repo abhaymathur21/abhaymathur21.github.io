@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import useScrollReveal from "../hooks/useScrollReveal";
 
 const ExperienceSection = styled.section`
   padding: 3rem 2rem 2rem;
@@ -350,11 +351,12 @@ const companies = [
 ];
 
 const Experience = () => {
+  const revealRef = useScrollReveal(".reveal", 100);
   return (
-    <ExperienceSection>
-      <h2 id="experienceHeading">Work Experience</h2>
+    <ExperienceSection ref={revealRef}>
+      <h2 id="experienceHeading" className="reveal">Work Experience</h2>
       {companies.map((company) => (
-        <CompanyBlock key={company.name}>
+        <CompanyBlock key={company.name} className="reveal">
           <CompanyHeader>
             <CompanyName>{company.name}</CompanyName>
             <RoleBadge>{company.role}</RoleBadge>
@@ -384,8 +386,8 @@ const Experience = () => {
       ))}
 
       {/* Research Papers */}
-      <SectionHeading>Research Papers</SectionHeading>
-      <CompanyBlock>
+      <SectionHeading className="reveal">Research Papers</SectionHeading>
+      <CompanyBlock className="reveal">
         <FeatureCard>
           <FeatureHeader>
             <FeatureTitle>KAJU — Knowledge Assistant for Joint Utility</FeatureTitle>
@@ -427,8 +429,8 @@ const Experience = () => {
       </CompanyBlock>
 
       {/* Open Source Contributions */}
-      <SectionHeading>Open Source Contributions</SectionHeading>
-      <CompanyBlock>
+      <SectionHeading className="reveal">Open Source Contributions</SectionHeading>
+      <CompanyBlock className="reveal">
         <FeatureCard>
           <FeatureHeader>
             <FeatureTitle>Microsoft — AG2 (AutoGen)</FeatureTitle>

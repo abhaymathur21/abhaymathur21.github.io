@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import useScrollReveal from "../hooks/useScrollReveal";
 
 const ProjectSection = styled.section`
   padding: 2rem 2rem 4rem;
@@ -141,12 +142,14 @@ const projects = [
 ];
 
 const Projects = () => {
+  const revealRef = useScrollReveal(".reveal", 80);
   return (
-    <ProjectSection>
-      <SectionHeading>Projects</SectionHeading>
+    <ProjectSection ref={revealRef}>
+      <SectionHeading className="reveal">Projects</SectionHeading>
       <Grid>
         {projects.map((p) => (
           <Card
+            className="reveal"
             key={p.href}
             href={p.href}
             target="_blank"

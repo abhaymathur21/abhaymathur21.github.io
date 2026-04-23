@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import useScrollReveal from "../hooks/useScrollReveal";
 
 const ResponsibilitiesSection = styled.section`
   padding: 0 2rem 4rem;
@@ -107,12 +108,13 @@ const roles = [
 ];
 
 const Responsibilities = () => {
+  const revealRef = useScrollReveal(".reveal", 120);
   return (
-    <ResponsibilitiesSection>
-      <SectionHeading>Positions of Responsibility</SectionHeading>
+    <ResponsibilitiesSection ref={revealRef}>
+      <SectionHeading className="reveal">Positions of Responsibility</SectionHeading>
       <RolesGrid>
         {roles.map((r) => (
-          <RoleCard key={r.title} $accent={r.accent}>
+          <RoleCard key={r.title} $accent={r.accent} className="reveal">
             <RoleHeader $hasDesc={!!r.bullets}>
               <RoleTitle>{r.title}</RoleTitle>
               <RoleOrg>{r.org}</RoleOrg>

@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import styled from "styled-components";
+import useScrollReveal from "../hooks/useScrollReveal";
 
 const ContactSection = styled.footer`
   background-color: #2a6cb6;
@@ -39,9 +40,10 @@ const ContactSection = styled.footer`
 `;
 
 const Contact = () => {
+  const revealRef = useScrollReveal(".reveal", 100);
   return (
-    <ContactSection>
-      <h2 className="contact_heading">Contact</h2>
+    <ContactSection ref={revealRef}>
+      <h2 className="contact_heading reveal">Contact</h2>
       <a
         href="mailto:a21.mathur21@gmail.com"
         className="contact_button"
