@@ -23,8 +23,8 @@ const GlobalStyles = createGlobalStyle`
 
   .reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(20px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
   }
 
   .revealed {

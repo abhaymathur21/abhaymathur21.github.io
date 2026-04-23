@@ -150,7 +150,7 @@ const achievements = [
 ];
 
 const Achievements = () => {
-  const revealRef = useScrollReveal(".reveal", 100);
+  const revealRef = useScrollReveal(".reveal", 50);
   return (
     <AchievementsSection ref={revealRef}>
       <SectionHeading className="reveal">Achievements</SectionHeading>

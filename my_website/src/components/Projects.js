@@ -165,7 +165,7 @@ const projects = [
 ];
 
 const Projects = () => {
-  const revealRef = useScrollReveal(".reveal", 80);
+  const revealRef = useScrollReveal(".reveal", 40);
   return (
     <ProjectSection ref={revealRef}>
       <SectionHeading className="reveal">Projects</SectionHeading>

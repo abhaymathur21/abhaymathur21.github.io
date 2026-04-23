@@ -353,7 +353,7 @@ const companies = [
 ];
 
 const Experience = () => {
-  const revealRef = useScrollReveal(".reveal", 100);
+  const revealRef = useScrollReveal(".reveal", 50);
   return (
     <ExperienceSection ref={revealRef}>
       <h2 id="experienceHeading" className="reveal">Work Experience</h2>

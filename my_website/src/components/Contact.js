@@ -62,7 +62,7 @@ const ContactSection = styled.footer`
 `;
 
 const Contact = () => {
-  const revealRef = useScrollReveal(".reveal", 100);
+  const revealRef = useScrollReveal(".reveal", 50);
   return (
     <ContactSection ref={revealRef}>
       <h2 className="contact_heading reveal">Contact</h2>

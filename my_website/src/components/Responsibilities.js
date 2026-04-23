@@ -109,7 +109,7 @@ const roles = [
 ];
 
 const Responsibilities = () => {
-  const revealRef = useScrollReveal(".reveal", 120);
+  const revealRef = useScrollReveal(".reveal", 60);
   return (
     <ResponsibilitiesSection ref={revealRef}>
       <SectionHeading className="reveal">Positions of Responsibility</SectionHeading>
