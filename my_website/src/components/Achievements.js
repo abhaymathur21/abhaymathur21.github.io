@@ -35,9 +35,9 @@ const Grid = styled.div`
 `;
 
 const Card = styled.div`
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 14px;
   padding: 1.4rem 1.6rem;
   display: flex;

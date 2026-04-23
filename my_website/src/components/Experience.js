@@ -48,11 +48,12 @@ const RoleBadge = styled.span`
   display: inline-block;
   padding: 0.25rem 0.75rem;
   border-radius: 999px;
-  background: rgba(13, 59, 102, 0.1);
-  color: #124572;
+  background: rgba(255, 255, 255, 0.55);
+  color: #0d3b66;
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.3px;
+  border: 1px solid rgba(13, 59, 102, 0.18);
 `;
 
 const Duration = styled.span`
@@ -78,9 +79,9 @@ const ProjectCards = styled.div`
 `;
 
 const ProjectCard = styled.div`
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 14px;
   padding: 1.4rem 1.5rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -150,9 +151,9 @@ const SectionHeading = styled.h2`
 `;
 
 const FeatureCard = styled.div`
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 14px;
   padding: 1.6rem 1.8rem;
   max-width: 72rem;
@@ -310,6 +311,36 @@ const companies = [
         title: "Medical Application Backend",
         bullets: [
           "Built and deployed the backend of a medical application using FastAPI with AWS DynamoDB and S3.",
+        ],
+      },
+    ],
+  },
+  {
+    name: "Eccomix Infratech Industries",
+    role: "Full Stack Web Developer Intern",
+    duration: "November 2023 — February 2024",
+    url: "https://www.linkedin.com/company/eccomix-infratech-industries/",
+    projects: [
+      {
+        title: "Contract Management Website",
+        bullets: [
+          "Built a contract management website for the company to streamline their internal contract workflows.",
+        ],
+      },
+    ],
+  },
+  {
+    name: "Mecha Systems",
+    role: "ML Developer",
+    duration: "June 2023 — August 2023",
+    url: "https://mecha.so/",
+    projects: [
+      {
+        title: "ML on Custom Embedded Devices",
+        bullets: [
+          "Implemented Object Detection, Semantic Segmentation, Speech Recognition, and other ML models on a custom embedded device manufactured by Mecha.",
+          "Learned to deploy TFLite object detection models using Docker on custom embedded devices and Unix-based systems.",
+          "Collaborated with my mentor to fix issues in TensorFlow Lite's example code for edge devices — specifically resolving Object Detection on a Raspberry Pi and opening a Pull Request to TFLite's official GitHub repository.",
         ],
       },
     ],
