@@ -456,6 +456,17 @@ const HeaderWrapper = styled.footer`
       padding: 0.75rem 1.8rem;
       font-size: 1rem;
       margin-top: 1.2rem;
+      background: #fff;
+      color: #0d3b66;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+    }
+
+    .button:hover {
+      transform: none;
+    }
+
+    .button::before {
+      display: none;
     }
   }
 `;
