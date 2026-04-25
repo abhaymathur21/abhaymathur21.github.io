@@ -342,7 +342,7 @@ const HeaderWrapper = styled.footer`
   }
 
   @media (max-width: 720px) {
-    padding: 1.5rem 1rem;
+    padding: 1.5rem 1.8rem;
 
     .name {
       font-size: 2.6rem;
@@ -376,14 +376,9 @@ const HeaderWrapper = styled.footer`
       margin-bottom: 0;
     }
 
-    /* Truncate bio to 3 lines */
     .lead {
-      font-size: 0.95rem;
-      line-height: 1.65;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+      font-size: 0.88rem;
+      line-height: 1.6;
       margin-bottom: 0;
     }
 
