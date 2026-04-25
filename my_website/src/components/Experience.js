@@ -308,6 +308,36 @@ const companies = [
     ],
   },
   {
+    name: "Purry Tails",
+    role: "Co-Founder & CTO",
+    duration: "December 2023 — May 2025",
+    url: "https://purrytails.in",
+    projects: [
+      {
+        title: "AI-Powered Veterinary Document Processing",
+        bullets: [
+          "Built an AI pipeline using Google Gemini (vision + text) to extract structured data from uploaded vet images and PDFs \u2014 including date, diseases, medicines, doctor name, clinical domain, and summary.",
+          "Developed a multi-page PDF segmentation system using PyMuPDF for rasterization and Gemini for intelligent report boundary detection, grouping pages that belong to the same visit.",
+        ],
+      },
+      {
+        title: "RAG Pet Health Chatbot",
+        bullets: [
+          "Implemented a RAG chatbot using ChromaDB and LangChain for semantic report retrieval, with Gemini answering queries grounded in the pet\u2019s medical history.",
+          "Added a classifier layer that routes queries between report-retrieval and general pet health Q&A paths, with Web Speech API for voice input.",
+        ],
+      },
+      {
+        title: "Full-Stack Platform & Deployment",
+        bullets: [
+          "Built the entire platform end-to-end using React 18 frontend with Google OAuth, FastAPI backend, ChromaDB for storage, Razorpay payment integration with subscription and trial support, and pet profile management with multi-pet support and cross-user sharing.",
+          "Implemented doctor-patient report sharing, Fernet-encrypted QR codes for shareable pet health dashboards, Google Calendar/Meet integration for vet appointments, and in-app peer messaging.",
+          "Deployed to production at purrytails.in using Docker, Nginx reverse proxy, and Let\u2019s Encrypt TLS certificates.",
+        ],
+      },
+    ],
+  },
+  {
     name: "Kairos Spark AI",
     role: "AI Intern",
     duration: "March 2025 — April 2025",
