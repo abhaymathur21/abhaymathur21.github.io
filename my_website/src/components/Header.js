@@ -246,9 +246,13 @@ const HeaderWrapper = styled.footer`
     border-radius: 999px;
     font-weight: 900;
     letter-spacing: 0.2px;
-    color: #ffffff;
+    color: rgba(255, 255, 255, 0.7);
     background: rgba(0, 0, 0, 0.22);
     border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .tldr .tldr-content {
+    color: #ffffff;
   }
 
   .tldr::after {
@@ -517,7 +521,7 @@ const Header = () => {
                 automate their workflows.
               </p>
 
-              <p className="tldr">TL;DR: I automate things.</p>
+              <p className="tldr">TL;DR:&nbsp; <span className="tldr-content">I automate things.</span></p>
             </div>
 
             <div className="bioRight">
