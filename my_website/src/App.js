@@ -33,23 +33,6 @@ function App() {
     <>
       <GlobalStyles />
       <Header />
-      <WaveDivider $bg="rgba(52, 148, 230, 1)">
-        <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
-          <path
-            d="M0,60 C360,0 720,48 1080,12 C1260,0 1380,24 1440,36 L1440,0 L0,0 Z"
-            fill="rgba(52, 148, 230, 1)"
-            opacity="0"
-          />
-          <path
-            d="M0,0 C240,50 480,20 720,40 C960,60 1200,10 1440,30 L1440,60 L0,60 Z"
-            fill="rgba(52, 148, 230, 1)"
-          />
-          <path
-            d="M0,20 C360,55 720,5 1080,45 C1260,55 1380,25 1440,35 L1440,60 L0,60 Z"
-            fill="rgba(52, 148, 230, 0.6)"
-          />
-        </svg>
-      </WaveDivider>
       <Gradient>
         <Experience />
         <Projects />

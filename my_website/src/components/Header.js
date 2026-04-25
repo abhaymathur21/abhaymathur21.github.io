@@ -18,6 +18,17 @@ const HeaderWrapper = styled.footer`
   position: relative;
   box-sizing: border-box;
 
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: rgba(52, 148, 230, 1);
+    z-index: 1;
+  }
+
   .content {
     display: inline-block;
     width: min(60rem, 100%);
