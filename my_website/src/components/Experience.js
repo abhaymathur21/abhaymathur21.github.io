@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import useScrollReveal from "../hooks/useScrollReveal";
+import MobileCollapsible from "./MobileCollapsible";
 
 const ExperienceSection = styled.section`
   padding: 3rem 2rem 2rem;
@@ -12,7 +13,7 @@ const ExperienceSection = styled.section`
   }
 
   @media (max-width: 768px) {
-    padding: 2rem 1rem 1rem;
+    padding: 0 1rem;
 
     #experienceHeading {
       padding-left: 0.5rem;
@@ -24,6 +25,10 @@ const ExperienceSection = styled.section`
 const CompanyBlock = styled.div`
   max-width: 72rem;
   margin: 0 auto 3rem;
+
+  @media (max-width: 768px) {
+    margin-bottom: 0;
+  }
 `;
 
 const CompanyHeader = styled.div`
@@ -33,6 +38,10 @@ const CompanyHeader = styled.div`
   gap: 0.5rem 1.2rem;
   margin-bottom: 1.2rem;
   padding: 0 0.5rem;
+
+  @media (max-width: 768px) {
+    margin-bottom: 0;
+  }
 `;
 
 const CompanyName = styled.h3`
@@ -408,105 +417,131 @@ const Experience = () => {
   const revealRef = useScrollReveal(".reveal", 50);
   return (
     <ExperienceSection ref={revealRef}>
-      <h2 id="experienceHeading" className="reveal section-heading">Work Experience</h2>
-      {companies.map((company) => (
-        <CompanyBlock key={company.name} className="reveal">
-          <CompanyHeader>
-            <CompanyName>{company.name}</CompanyName>
-            <RoleBadge>{company.role}</RoleBadge>
-            <Duration>{company.duration}</Duration>
-            <CompanyLink
-              href={company.url}
-              target="_blank"
-              rel="noreferrer noopener"
+      <MobileCollapsible
+        renderHeader={(chevron) => (
+          <h2 id="experienceHeading" className="reveal section-heading">
+            Work Experience {chevron}
+          </h2>
+        )}
+      >
+        {companies.map((company) => (
+          <CompanyBlock key={company.name} className="reveal">
+            <MobileCollapsible
+              renderHeader={(chevron) => (
+                <CompanyHeader>
+                  <CompanyName>{company.name} {chevron}</CompanyName>
+                  <RoleBadge>{company.role}</RoleBadge>
+                  <Duration>{company.duration}</Duration>
+                  <CompanyLink
+                    href={company.url}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    ↗ Company page
+                  </CompanyLink>
+                </CompanyHeader>
+              )}
             >
-              ↗ Company page
-            </CompanyLink>
-          </CompanyHeader>
-
-          <ProjectCards>
-            {company.projects.map((project) => (
-              <ProjectCard key={project.title}>
-                <ProjectTitle>{project.title}</ProjectTitle>
-                <BulletList>
-                  {project.bullets.map((b, i) => (
-                    <Bullet key={i}>{b}</Bullet>
-                  ))}
-                </BulletList>
-              </ProjectCard>
-            ))}
-          </ProjectCards>
-        </CompanyBlock>
-      ))}
+              <ProjectCards>
+                {company.projects.map((project) => (
+                  <ProjectCard key={project.title}>
+                    <ProjectTitle>{project.title}</ProjectTitle>
+                    <BulletList>
+                      {project.bullets.map((b, i) => (
+                        <Bullet key={i}>{b}</Bullet>
+                      ))}
+                    </BulletList>
+                  </ProjectCard>
+                ))}
+              </ProjectCards>
+            </MobileCollapsible>
+          </CompanyBlock>
+        ))}
+      </MobileCollapsible>
 
       {/* Research Papers */}
-      <SectionHeading className="reveal section-heading">Research Papers</SectionHeading>
-      <CompanyBlock className="reveal">
-        <FeatureCard>
-          <FeatureHeader>
-            <FeatureTitle>KAJU — Knowledge Assistant for Joint Utility</FeatureTitle>
-            <FeatureLink
-              href="https://ieeexplore.ieee.org/document/11412089"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              ↗ IEEE Xplore
-            </FeatureLink>
-          </FeatureHeader>
-          <BulletList>
-            <Bullet>
-              Architected and developed a multi-agent LLM system (FastAPI + Java
-              GUI) enabling autonomous code modification, debugging, and system
-              command execution.
-            </Bullet>
-            <Bullet>
-              Implemented RAG-based project integration using ChromaDB for
-              context-aware code retrieval and intelligent CRUD operations on
-              large codebases.
-            </Bullet>
-          </BulletList>
-          <StatRow>
-            <StatPill>
-              <StatValue>88.75%</StatValue>
-              <StatLabel>Task Success</StatLabel>
-            </StatPill>
-            <StatPill>
-              <StatValue>93.45%</StatValue>
-              <StatLabel>Recovery Rate</StatLabel>
-            </StatPill>
-            <StatPill>
-              <StatValue>124</StatValue>
-              <StatLabel>Evaluations</StatLabel>
-            </StatPill>
-          </StatRow>
-        </FeatureCard>
-      </CompanyBlock>
+      <MobileCollapsible
+        renderHeader={(chevron) => (
+          <SectionHeading className="reveal section-heading">
+            Research Papers {chevron}
+          </SectionHeading>
+        )}
+      >
+        <CompanyBlock className="reveal">
+          <FeatureCard>
+            <FeatureHeader>
+              <FeatureTitle>KAJU — Knowledge Assistant for Joint Utility</FeatureTitle>
+              <FeatureLink
+                href="https://ieeexplore.ieee.org/document/11412089"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                ↗ IEEE Xplore
+              </FeatureLink>
+            </FeatureHeader>
+            <BulletList>
+              <Bullet>
+                Architected and developed a multi-agent LLM system (FastAPI + Java
+                GUI) enabling autonomous code modification, debugging, and system
+                command execution.
+              </Bullet>
+              <Bullet>
+                Implemented RAG-based project integration using ChromaDB for
+                context-aware code retrieval and intelligent CRUD operations on
+                large codebases.
+              </Bullet>
+            </BulletList>
+            <StatRow>
+              <StatPill>
+                <StatValue>88.75%</StatValue>
+                <StatLabel>Task Success</StatLabel>
+              </StatPill>
+              <StatPill>
+                <StatValue>93.45%</StatValue>
+                <StatLabel>Recovery Rate</StatLabel>
+              </StatPill>
+              <StatPill>
+                <StatValue>124</StatValue>
+                <StatLabel>Evaluations</StatLabel>
+              </StatPill>
+            </StatRow>
+          </FeatureCard>
+        </CompanyBlock>
+      </MobileCollapsible>
 
       {/* Open Source Contributions */}
-      <SectionHeading className="reveal section-heading">Open Source Contributions</SectionHeading>
-      <CompanyBlock className="reveal">
-        <FeatureCard>
-          <FeatureHeader>
-            <FeatureTitle>Microsoft — AG2 (AutoGen)</FeatureTitle>
-            <FeatureSubtitle>February 2024</FeatureSubtitle>
-            <FeatureLink
-              href="https://github.com/microsoft/autogen"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              ↗ Repository
-            </FeatureLink>
-          </FeatureHeader>
-          <BulletList>
-            <Bullet>
-              Fixed an issue in AutoGen's User Proxy Agent that prevented
-              automatic shell script execution by updating PowerShell command
-              handling to support newer PowerShell versions, enabling
-              compatibility across operating systems.
-            </Bullet>
-          </BulletList>
-        </FeatureCard>
-      </CompanyBlock>
+      <MobileCollapsible
+        renderHeader={(chevron) => (
+          <SectionHeading className="reveal section-heading">
+            Open Source Contributions {chevron}
+          </SectionHeading>
+        )}
+      >
+        <CompanyBlock className="reveal">
+          <FeatureCard>
+            <FeatureHeader>
+              <FeatureTitle>Microsoft — AG2 (AutoGen)</FeatureTitle>
+              <FeatureSubtitle>February 2024</FeatureSubtitle>
+              <FeatureLink
+                href="https://github.com/microsoft/autogen"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                ↗ Repository
+              </FeatureLink>
+            </FeatureHeader>
+            <BulletList>
+              <Bullet>
+                Fixed an issue in AutoGen's User Proxy Agent that prevented
+                automatic shell script execution by updating PowerShell command
+                handling to support newer PowerShell versions, enabling
+                compatibility across operating systems.
+              </Bullet>
+            </BulletList>
+          </FeatureCard>
+        </CompanyBlock>
+      </MobileCollapsible>
     </ExperienceSection>
   );
 };

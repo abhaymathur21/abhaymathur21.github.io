@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import useScrollReveal from "../hooks/useScrollReveal";
+import MobileCollapsible from "./MobileCollapsible";
 
 const ResponsibilitiesSection = styled.section`
   padding: 0 2rem 4rem;
 
   @media (max-width: 768px) {
-    padding: 0 1rem 3rem;
+    padding: 0 1rem;
   }
 `;
 
@@ -122,24 +123,31 @@ const Responsibilities = () => {
   const revealRef = useScrollReveal(".reveal", 60);
   return (
     <ResponsibilitiesSection ref={revealRef}>
-      <SectionHeading className="reveal section-heading">Positions of Responsibility</SectionHeading>
-      <RolesGrid>
-        {roles.map((r) => (
-          <RoleCard key={r.title} $accent={r.accent} className="reveal">
-            <RoleHeader $hasDesc={!!r.bullets}>
-              <RoleTitle>{r.title}</RoleTitle>
-              <RoleOrg>{r.org}</RoleOrg>
-            </RoleHeader>
-            {r.bullets && (
-              <RoleDesc>
-                {r.bullets.map((b, i) => (
-                  <li key={i}>{b}</li>
-                ))}
-              </RoleDesc>
-            )}
-          </RoleCard>
-        ))}
-      </RolesGrid>
+      <MobileCollapsible
+        renderHeader={(chevron) => (
+          <SectionHeading className="reveal section-heading">
+            Positions of Responsibility {chevron}
+          </SectionHeading>
+        )}
+      >
+        <RolesGrid>
+          {roles.map((r) => (
+            <RoleCard key={r.title} $accent={r.accent} className="reveal">
+              <RoleHeader $hasDesc={!!r.bullets}>
+                <RoleTitle>{r.title}</RoleTitle>
+                <RoleOrg>{r.org}</RoleOrg>
+              </RoleHeader>
+              {r.bullets && (
+                <RoleDesc>
+                  {r.bullets.map((b, i) => (
+                    <li key={i}>{b}</li>
+                  ))}
+                </RoleDesc>
+              )}
+            </RoleCard>
+          ))}
+        </RolesGrid>
+      </MobileCollapsible>
     </ResponsibilitiesSection>
   );
 };

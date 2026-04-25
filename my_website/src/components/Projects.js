@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import useScrollReveal from "../hooks/useScrollReveal";
+import MobileCollapsible from "./MobileCollapsible";
 
 const ProjectSection = styled.section`
   padding: 2rem 2rem 4rem;
 
   @media (max-width: 768px) {
-    padding: 2rem 1rem 3rem;
+    padding: 0 1rem;
   }
 `;
 
@@ -33,22 +34,35 @@ const Grid = styled.div`
   }
 `;
 
-const Card = styled.a`
+const Card = styled.div`
   background: linear-gradient(135deg, rgba(255,255,255,0.72), rgba(255,255,255,0.72), rgba(255,255,255,0.72));
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 14px;
   padding: 1.5rem 1.6rem;
-  text-decoration: none;
   display: flex;
   flex-direction: column;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
   transform-style: preserve-3d;
+  cursor: pointer;
 
   &:hover {
     transform: perspective(800px) rotateX(2deg) rotateY(-2deg) translateY(-4px);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
     background: linear-gradient(135deg, rgba(255,255,255,0.82), rgba(220,240,255,0.75), rgba(255,255,255,0.78));
+  }
+
+  @media (max-width: 768px) {
+    cursor: default;
+    padding: 1rem;
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
+
+    & > div {
+      padding: 0;
+    }
   }
 `;
 
@@ -58,6 +72,10 @@ const CardTitle = styled.h3`
   color: #0d3b66;
   font-weight: 750;
   line-height: 1.35;
+
+  @media (max-width: 768px) {
+    margin-bottom: 0;
+  }
 `;
 
 const CardDesc = styled.p`
@@ -166,31 +184,52 @@ const Projects = () => {
   const revealRef = useScrollReveal(".reveal", 40);
   return (
     <ProjectSection ref={revealRef}>
-      <SectionHeading className="reveal section-heading">Projects</SectionHeading>
-      <Grid>
-        {projects.map((p) => (
-          <Card
-            className="reveal"
-            key={p.href}
-            href={p.href}
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            <CardTitle>{p.title}</CardTitle>
-            <CardDesc>{p.desc}</CardDesc>
-            {p.tags && (
-              <TagsRow>
-                {p.tags.map((t) => (
-                  <Tag key={t}>{t}</Tag>
-                ))}
-              </TagsRow>
-            )}
-            <CardFooter>
-              <GithubIcon>↗ View on GitHub</GithubIcon>
-            </CardFooter>
-          </Card>
-        ))}
-      </Grid>
+      <MobileCollapsible
+        renderHeader={(chevron) => (
+          <SectionHeading className="reveal section-heading">
+            Projects {chevron}
+          </SectionHeading>
+        )}
+      >
+        <Grid>
+          {projects.map((p) => (
+            <Card
+              className="reveal"
+              key={p.href}
+              onClick={() => {
+                if (window.innerWidth > 768) {
+                  window.open(p.href, "_blank", "noreferrer noopener");
+                }
+              }}
+            >
+              <MobileCollapsible
+                renderHeader={(chevron) => (
+                  <CardTitle>{p.title} {chevron}</CardTitle>
+                )}
+              >
+                <CardDesc>{p.desc}</CardDesc>
+                {p.tags && (
+                  <TagsRow>
+                    {p.tags.map((t) => (
+                      <Tag key={t}>{t}</Tag>
+                    ))}
+                  </TagsRow>
+                )}
+                <CardFooter
+                  as="a"
+                  href={p.href}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  onClick={(e) => e.stopPropagation()}
+                  style={{ textDecoration: "none" }}
+                >
+                  <GithubIcon>↗ View on GitHub</GithubIcon>
+                </CardFooter>
+              </MobileCollapsible>
+            </Card>
+          ))}
+        </Grid>
+      </MobileCollapsible>
     </ProjectSection>
   );
 };

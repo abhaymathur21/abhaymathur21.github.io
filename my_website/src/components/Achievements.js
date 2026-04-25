@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import useScrollReveal from "../hooks/useScrollReveal";
+import MobileCollapsible from "./MobileCollapsible";
 
 const AchievementsSection = styled.section`
   padding: 2rem 2rem 4rem;
 
   @media (max-width: 768px) {
-    padding: 2rem 1rem 3rem;
+    padding: 0 1rem;
   }
 `;
 
@@ -151,31 +152,37 @@ const Achievements = () => {
   const revealRef = useScrollReveal(".reveal", 50);
   return (
     <AchievementsSection ref={revealRef}>
-      <SectionHeading className="reveal section-heading">Achievements</SectionHeading>
-      <Grid>
-        {achievements.map((a) => (
-          <Card key={a.title} className="reveal">
-            <Medal>{a.medal}</Medal>
-            <CardBody>
-              <CardTitle>{a.title}</CardTitle>
-              <CardEvent>{a.event}</CardEvent>
-              <PlaceBadge $bg={a.badgeBg} $color={a.badgeColor}>
-                {a.place}
-              </PlaceBadge>
-              {a.link && (
-                <ProjectLink
-                  href={a.link}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  ↗ Project
-                </ProjectLink>
-              )}
-            </CardBody>
-          </Card>
-        ))}
-      </Grid>
-
+      <MobileCollapsible
+        renderHeader={(chevron) => (
+          <SectionHeading className="reveal section-heading">
+            Achievements {chevron}
+          </SectionHeading>
+        )}
+      >
+        <Grid>
+          {achievements.map((a) => (
+            <Card key={a.title} className="reveal">
+              <Medal>{a.medal}</Medal>
+              <CardBody>
+                <CardTitle>{a.title}</CardTitle>
+                <CardEvent>{a.event}</CardEvent>
+                <PlaceBadge $bg={a.badgeBg} $color={a.badgeColor}>
+                  {a.place}
+                </PlaceBadge>
+                {a.link && (
+                  <ProjectLink
+                    href={a.link}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    ↗ Project
+                  </ProjectLink>
+                )}
+              </CardBody>
+            </Card>
+          ))}
+        </Grid>
+      </MobileCollapsible>
     </AchievementsSection>
   );
 };
