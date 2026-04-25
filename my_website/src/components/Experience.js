@@ -308,6 +308,21 @@ const companies = [
     ],
   },
   {
+    name: "Kairos Spark AI",
+    role: "AI Intern",
+    duration: "March 2025 — April 2025",
+    url: "https://kairos-sparkai.com/aec/",
+    projects: [
+      {
+        title: "GrantForge — Chat History & Web Search Integration",
+        bullets: [
+          "Built the session-aware chat history system for the RAG pipeline, using LangChain\u2019s ConversationBufferMemory with a token-budgeted windowing strategy that accumulates recent messages in reverse until the budget is reached, preserving context across multi-turn conversations.",
+          "Integrated SerpAPI-powered web search augmentation — an LLM first generates a search query from the user\u2019s question and retrieved context, then the system fetches organic results asynchronously and injects them as supplementary context when the vector store alone is insufficient.",
+        ],
+      },
+    ],
+  },
+  {
     name: "Airrchip",
     role: "AI Developer Intern",
     duration: "March 2024 — August 2024",
