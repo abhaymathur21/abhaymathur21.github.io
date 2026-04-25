@@ -403,7 +403,9 @@ const HeaderWrapper = styled.footer`
       display: flex;
       flex-direction: row;
       overflow-x: auto;
-      scroll-snap-type: x mandatory;
+      scroll-snap-type: x proximity;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
       gap: 0;
       padding: 0.4rem 0;
       -ms-overflow-style: none;
