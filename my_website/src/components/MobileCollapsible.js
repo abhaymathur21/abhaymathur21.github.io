@@ -38,8 +38,8 @@ const Content = styled.div`
   @media (max-width: 768px) {
     overflow: hidden;
     max-height: ${(props) => (props.$open ? "10000px" : "0")};
-    transition: max-height ${(props) => (props.$open ? "0.6s ease-in" : "0.4s ease-out")};
     padding-top: ${(props) => (props.$open ? "1.5rem" : "0")};
+    transition: max-height 0.45s ease-in-out, padding-top 0.45s ease-in-out;
 
     & > *:first-child > ${Wrapper}:first-child {
       padding-top: 0;
