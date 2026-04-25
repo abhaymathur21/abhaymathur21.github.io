@@ -522,7 +522,15 @@ const EasterEggToast = styled.div`
   cursor: pointer;
   z-index: 9999;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  white-space: nowrap;
+  max-width: calc(100vw - 2rem);
+  text-align: center;
+  box-sizing: border-box;
+
+  @media (max-width: 600px) {
+    width: calc(100vw - 2rem);
+    max-width: none;
+    bottom: 6rem;
+  }
 `;
 
 const easterEggMessages = [
