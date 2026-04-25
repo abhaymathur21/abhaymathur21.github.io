@@ -342,33 +342,125 @@ const HeaderWrapper = styled.footer`
   }
 
   @media (max-width: 720px) {
-    padding: 2rem 1.25rem;
-    .glass {
-      padding: 1.1rem 1.1rem;
+    padding: 1.5rem 1rem;
+
+    .name {
+      font-size: 2.6rem;
+      margin: 0.15rem 0 0.4rem;
     }
+
+    .intro {
+      font-size: 0.95rem;
+    }
+
+    /* Remove glass container on mobile — facts become their own cards */
+    .glass {
+      padding: 0;
+      margin-top: 0.6rem;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
     .bio {
       text-align: center;
     }
+
     .bioGrid {
       grid-template-columns: 1fr;
+      gap: 0;
     }
+
+    .bioLeft {
+      margin-bottom: 0;
+    }
+
+    /* Truncate bio to 3 lines */
+    .lead {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 0;
+    }
+
+    /* TLDR becomes the hero tagline right under the bio */
+    .tldr {
+      margin: 2rem auto 0;
+      font-size: 0.95rem;
+      padding: 0.5rem 0.9rem;
+    }
+
+    /* Facts area: no border, becomes horizontal scroll */
     .bioRight {
       padding-left: 0;
       border-left: 0;
-      padding-top: 0.9rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.18);
+      padding-top: 1.8rem;
+      border-top: none;
+      margin-left: -1.25rem;
+      margin-right: -1.25rem;
     }
+
+    .facts {
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 0;
+      padding: 0.4rem 0;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      max-width: 100%;
+    }
+
+    .facts::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Each fact becomes a glassmorphism card */
     .fact {
-      grid-template-columns: 1fr;
-      row-gap: 0.25rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: calc(100% - 3rem);
+      flex-shrink: 0;
+      scroll-snap-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 16px;
+      padding: 1.1rem 1rem;
+      margin: 0 1.5rem;
+      backdrop-filter: blur(8px);
+      row-gap: 0.35rem;
+      box-sizing: border-box;
     }
-    .factLabel,
+
+    .factLabel {
+      font-size: 0.68rem;
+      margin-bottom: 0;
+      text-align: center;
+    }
+
     .factValue {
       text-align: center;
     }
-    .tldr {
-      margin-left: auto;
-      margin-right: auto;
+
+    .factDivider {
+      display: none;
+    }
+
+    .sideQuestRow {
+      justify-content: center;
+    }
+
+    .button {
+      padding: 0.75rem 1.8rem;
+      font-size: 1rem;
+      margin-top: 1.2rem;
     }
   }
 `;
@@ -409,6 +501,11 @@ const DownArrow = styled.a`
   &:hover {
     animation-play-state: paused;
     opacity: 0.8;
+  }
+
+  @media (max-width: 720px) {
+    margin-top: 1rem;
+    font-size: 1.8rem;
   }
 `;
 
