@@ -15,7 +15,22 @@ const HeaderWrapper = styled.footer`
   flex-direction: column;
   align-items: center;
   position: relative;
+  z-index: 1;
+  isolation: isolate;
   box-sizing: border-box;
+
+  /* Solid bridge past canvas/WebGL vs next section — kills hairlines at any DPR/zoom */
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -20px;
+    height: 24px;
+    background: rgb(52, 148, 230);
+    pointer-events: none;
+    z-index: 2;
+  }
 
   .headerMain {
     display: flex;
@@ -24,6 +39,8 @@ const HeaderWrapper = styled.footer`
     flex: 1 1 auto;
     min-height: 0;
     width: 100%;
+    position: relative;
+    z-index: 2;
   }
 
   .headerVSpacer {
@@ -504,6 +521,7 @@ const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 1;
   background: linear-gradient(
     to bottom,
     rgba(205, 223, 255, 0),

@@ -10,6 +10,12 @@ import styled from "styled-components";
 
 const Gradient = styled.div`
   background: linear-gradient(to bottom, rgba(52, 148, 230, 1), #5da8d0 50%, #5a9fd4 80%, #2a6cb6);
+  /* Large overlap: fractional layout + canvas vs CSS at odd zoom/DPR */
+  margin-top: -20px;
+  padding-top: 20px;
+  position: relative;
+  z-index: 0;
+  transform: translateZ(0);
 `;
 
 const WaveDivider = styled.div`

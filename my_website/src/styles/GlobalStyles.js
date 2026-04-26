@@ -5,7 +5,8 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
-
+    /* Matches hero / gradient top so sub-pixel gaps never flash white */
+    background-color: rgb(52, 148, 230);
   }
 
   h1, h2, h3, h4 {
