@@ -343,6 +343,8 @@ const HeaderWrapper = styled.footer`
 
   @media (max-width: 720px) {
     padding: 1.5rem 1.8rem;
+    justify-content: flex-start;
+    padding-top: max(2.5rem, 10vh);
 
     .name {
       font-size: 2.6rem;
@@ -459,7 +461,7 @@ const HeaderWrapper = styled.footer`
     .button {
       padding: 0.75rem 1.8rem;
       font-size: 1rem;
-      margin-top: 1.2rem;
+      margin-top: 1.8rem;
       background: #fff;
       color: #0d3b66;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
