@@ -14,12 +14,35 @@ const HeaderWrapper = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   position: relative;
   box-sizing: border-box;
 
+  .headerMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+  }
+
+  .headerVSpacer {
+    flex: 1 1 0;
+    min-height: 0;
+    width: 100%;
+  }
+
+  .headerToastSlot {
+    flex: 0 0 0;
+    height: 0;
+    width: 100%;
+    overflow: visible;
+    pointer-events: none;
+  }
+
   .content {
     display: inline-block;
+    flex: 0 0 auto;
     width: min(60rem, 100%);
   }
 
@@ -343,8 +366,6 @@ const HeaderWrapper = styled.footer`
 
   @media (max-width: 720px) {
     padding: 1.5rem 1.8rem;
-    justify-content: flex-start;
-    padding-top: max(2.5rem, 10vh);
 
     .name {
       font-size: 2.6rem;
@@ -620,7 +641,9 @@ const Header = () => {
   return (
     <HeaderWrapper ref={myRef}>
       <Overlay overlayState={overlayState} />
-      <div className="content">
+      <div className="headerMain">
+        <div className="headerVSpacer" aria-hidden="true" />
+        <div className="content">
         <p className="intro">Hi, I’m</p>
         <h1 className="name">Abhay Mathur</h1>
 
@@ -707,13 +730,17 @@ const Header = () => {
         </a>
 
         <DownArrow onClick={scrollToNextSection}>&darr;</DownArrow>
+        </div>
+        <div className="headerVSpacer" aria-hidden="true" />
       </div>
-      <EasterEggToast
-        $show={easterEgg.show}
-        onClick={() => window.open(instagram.url, "_blank", "noreferrer noopener")}
-      >
-        {easterEgg.msg}
-      </EasterEggToast>
+      <div className="headerToastSlot">
+        <EasterEggToast
+          $show={easterEgg.show}
+          onClick={() => window.open(instagram.url, "_blank", "noreferrer noopener")}
+        >
+          {easterEgg.msg}
+        </EasterEggToast>
+      </div>
     </HeaderWrapper>
   );
 };
