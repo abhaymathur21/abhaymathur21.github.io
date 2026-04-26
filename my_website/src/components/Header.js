@@ -18,17 +18,6 @@ const HeaderWrapper = styled.footer`
   position: relative;
   box-sizing: border-box;
 
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 100%;
-    height: 8px;
-    background: rgba(52, 148, 230, 1);
-    z-index: 1;
-  }
-
   .content {
     display: inline-block;
     width: min(60rem, 100%);
@@ -414,9 +403,7 @@ const HeaderWrapper = styled.footer`
       display: flex;
       flex-direction: row;
       overflow-x: auto;
-      scroll-snap-type: x proximity;
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
       gap: 0;
       padding: 0.4rem 0;
       -ms-overflow-style: none;
