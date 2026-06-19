@@ -296,7 +296,7 @@ const companies = [
     ],
   },
   {
-    name: "Microsoft Research & Navsahyog",
+    name: "Navsahyog (NGO)",
     role: "AI Intern",
     duration: "June 2024 — June 2025",
     url: "https://www.navsahyog.org/",
@@ -304,7 +304,7 @@ const companies = [
       {
         title: "Jugalbandi Studio — Multilingual RAG Chatbot",
         bullets: [
-          'Worked under a Principal Research SDE at Microsoft Research on the open-source project \u201CJugalbandi Studio\u201D to build and integrate a multilingual RAG-based chatbot with Telegram for the NGO.',
+          'Mentored by a Principal Research SDE at Microsoft Research on the open-source project \u201CJugalbandi Studio\u201D to build and integrate a multilingual RAG-based chatbot with Telegram for the NGO.',
         ],
       },
       {
