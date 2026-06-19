@@ -49,14 +49,6 @@ const HeaderWrapper = styled.footer`
     width: 100%;
   }
 
-  .headerToastSlot {
-    flex: 0 0 0;
-    height: 0;
-    width: 100%;
-    overflow: visible;
-    pointer-events: none;
-  }
-
   .content {
     display: inline-block;
     flex: 0 0 auto;
@@ -145,15 +137,26 @@ const HeaderWrapper = styled.footer`
     font-weight: 800;
   }
 
-  .sideQuestRow {
-    display: inline-flex;
+  .factValue a.sideQuestHandle {
+    text-decoration: none !important;
+    font-weight: inherit;
+  }
+
+  .sideQuestHandle {
+    display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 0.55rem;
+    gap: 0.35rem 0.55rem;
+    width: 100%;
+    max-width: 100%;
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
   }
 
   .sideQuestPill {
     display: inline-flex;
+    flex-shrink: 0;
     align-items: center;
     gap: 0.45rem;
     padding: 0.35rem 0.65rem;
@@ -171,9 +174,26 @@ const HeaderWrapper = styled.footer`
     transform: translateY(-0.5px);
   }
 
-  .sideQuestHandle {
-    text-decoration: none;
-    cursor: pointer;
+  .sideQuestComment {
+    flex: 1 1 0;
+    min-width: 0;
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.35;
+    white-space: normal;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+    text-align: left;
+  }
+
+  .sideQuestComment.isVisible {
+    opacity: 1;
+  }
+
+  .fact--vcenter .factValue {
+    min-width: 0;
   }
 
   .sideQuestHandle:hover .sideQuestPill {
@@ -492,7 +512,13 @@ const HeaderWrapper = styled.footer`
       display: none;
     }
 
-    .sideQuestRow {
+    .sideQuestComment {
+      flex: 1 1 100%;
+      max-width: 11rem;
+      text-align: center;
+    }
+
+    .sideQuestHandle {
       justify-content: center;
     }
 
@@ -560,48 +586,19 @@ const DownArrow = styled.a`
   }
 `;
 
-const EasterEggToast = styled.div`
-  position: fixed;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%) translateY(${(props) => (props.$show ? "0" : "80px")});
-  opacity: ${(props) => (props.$show ? 1 : 0)};
-  background: rgba(13, 59, 102, 0.85);
-  backdrop-filter: blur(12px);
-  color: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 0.8rem 1.4rem;
-  border-radius: 12px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  pointer-events: ${(props) => (props.$show ? "auto" : "none")};
-  cursor: pointer;
-  z-index: 9999;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  max-width: calc(100vw - 2rem);
-  text-align: center;
-  box-sizing: border-box;
-
-  @media (max-width: 600px) {
-    width: calc(100vw - 2rem);
-    max-width: none;
-    bottom: 6rem;
-  }
-`;
-
 const easterEggMessages = [
-  "Yes, I play guitar. No, I won't play Wonderwall. (Click again for Instagram)",
-  "Music is my therapy. AI pays for it. (Tap again to see more)",
-  "I debug code and sheet music with equal frustration. (Click again for Instagram)",
-  "Trained neural networks by day and my ears by night. (Tap again to see more)",
-  "I once spent 3 hours on a bug. And 4 hours learning a song. Priorities. (Tap again to see more)",
+  "Yes, I play guitar. No, I won't play Wonderwall.",
+  "Music is my therapy. AI pays for it.",
+  "I debug code and sheet music with equal frustration.",
+  "Trained neural networks by day and my ears by night.",
+  "I once spent 3 hours on a bug. And 4 hours learning a song. Priorities.",
 ];
 
 const Header = () => {
   const [vantaEffect, setVantaEffect] = useState(null);
   // eslint-disable-next-line
   const [overlayState, setOverlayState] = useState(true);
-  const [easterEgg, setEasterEgg] = useState({ show: false, msg: "" });
+  const [musicianHoverMsg, setMusicianHoverMsg] = useState("");
   const myRef = useRef(null);
   // const ref = useRef(null);
   const instagram = {
@@ -641,19 +638,14 @@ const Header = () => {
     }
   };
 
-  const clickCount = useRef(0);
-  const triggerEasterEgg = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    clickCount.current += 1;
-    if (clickCount.current === 1) {
-      const msg = easterEggMessages[Math.floor(Math.random() * easterEggMessages.length)];
-      setEasterEgg({ show: true, msg });
-      setTimeout(() => setEasterEgg({ show: false, msg }), 5000);
-    } else {
-      window.open(instagram.url, "_blank", "noreferrer noopener");
-      clickCount.current = 0;
-    }
+  const showMusicianComment = () => {
+    const msg =
+      easterEggMessages[Math.floor(Math.random() * easterEggMessages.length)];
+    setMusicianHoverMsg(msg);
+  };
+
+  const hideMusicianComment = () => {
+    setMusicianHoverMsg("");
   };
 
   return (
@@ -717,19 +709,27 @@ const Header = () => {
                 <div className="fact fact--vcenter">
                   <div className="factLabel">Side quest</div>
                   <div className="factValue">
-                    <span
+                    <a
+                      href={instagram.url}
+                      target="_blank"
+                      rel="noreferrer noopener"
                       className="sideQuestHandle"
-                      onClick={triggerEasterEgg}
-                      role="button"
-                      tabIndex={0}
+                      onMouseEnter={showMusicianComment}
+                      onMouseLeave={hideMusicianComment}
+                      onFocus={showMusicianComment}
+                      onBlur={hideMusicianComment}
                     >
-                      <span className="sideQuestRow">
-                        <span className="sideQuestPill">
-                          <span className="sideQuestNote">♪</span>
-                          Musician
-                        </span>
+                      <span className="sideQuestPill">
+                        <span className="sideQuestNote">♪</span>
+                        Musician
                       </span>
-                    </span>
+                      <span
+                        className={`sideQuestComment${musicianHoverMsg ? " isVisible" : ""}`}
+                        aria-hidden={!musicianHoverMsg}
+                      >
+                        {musicianHoverMsg}
+                      </span>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -750,14 +750,6 @@ const Header = () => {
         <DownArrow onClick={scrollToNextSection}>&darr;</DownArrow>
         </div>
         <div className="headerVSpacer" aria-hidden="true" />
-      </div>
-      <div className="headerToastSlot">
-        <EasterEggToast
-          $show={easterEgg.show}
-          onClick={() => window.open(instagram.url, "_blank", "noreferrer noopener")}
-        >
-          {easterEgg.msg}
-        </EasterEggToast>
       </div>
     </HeaderWrapper>
   );
