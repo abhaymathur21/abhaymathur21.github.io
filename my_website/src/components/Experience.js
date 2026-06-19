@@ -270,7 +270,7 @@ const companies = [
     url: "https://www.searce.com/",
     projects: [
       {
-        title: "Natural Language Video Search & Montage Platform",
+        title: "Smart Clip Search & Video Stitching Platform",
         bullets: [
           "Built a smart video searching and stitching platform for a leading action-camera manufacturer. It involved two specialized approaches, one for specific event-based queries (trips, sessions) and one for compilation-based queries (thematic highlight reels), unified under a single interface that automatically classifies each user query and routes it to the appropriate pipeline.",
           "Implemented semantic search over ~127K video segments using Vertex AI Vector Search, with strict per-user catalog scoping, metadata grounding, and location/temporal filter softening to improve recall on sparse segment metadata.",
